@@ -5,7 +5,7 @@ import plotly.express as px
 # Page Configuration
 st.set_page_config(page_title="MoEYS PIP Dashboard", layout="wide")
 
-st.title("🏛️ MoEYS - Public Investment Program (PIP) 2027–2029")
+st.title("MoEYS - Public Investment Program (PIP) 2027–2029")
 st.markdown("**Department of Planning - Portfolio Overview**")
 st.divider()
 
