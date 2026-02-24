@@ -5,19 +5,22 @@ import plotly.express as px
 # Page Configuration
 st.set_page_config(page_title="MoEYS PIP Dashboard", layout="wide")
 
-st.title("MoEYS - Public Investment Program (PIP) 2027–2029")
+st.title("🏛️ MoEYS - Public Investment Program (PIP) 2027–2029")
 st.markdown("**Department of Planning - Portfolio Overview**")
 st.divider()
 
-# Top Level Metrics
-col1, col2, col3 = st.columns(3)
+# Top Level Metrics 
+st.subheader("Financing Structure & Portfolio Status")
+col1, col2, col3, col4 = st.columns(4)
+
 col1.metric("Total PIP Portfolio", "$715.6M")
-col2.metric("Ongoing Projects Total", "$493.1M")
-col3.metric("Pipeline / New Total", "$222.5M")
+col2.metric("Funded by DPs", "$715.6M", "100% of Total") 
+col3.metric("Ongoing Projects", "$493.1M")
+col4.metric("Pipeline / New", "$222.5M")
 
 st.divider()
 
-# Trend Bar Chart & Donut Chart
+# Top Row: Trend Bar Chart & Donut Chart
 top_col1, top_col2 = st.columns(2)
 
 with top_col1:
@@ -43,7 +46,6 @@ with top_col2:
     }
     df_pie = pd.DataFrame(pie_data)
     
-    # px.pie creates the chart. The 'hole=0.4' turns it into a donut!
     fig_pie = px.pie(
         df_pie, values="Total (Millions USD)", names="Status", 
         hole=0.4, color_discrete_sequence=["#1f77b4", "#ff7f0e"]
@@ -81,6 +83,5 @@ with bot_col2:
         "6. Teacher Capacity Development",
         "7. School Feeding & Youth Skills Programs"
     ]
-    # Adding a little extra styling to the list
     for area in focus_areas:
         st.markdown(f"✅ **{area}**")
